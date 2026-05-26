@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "es2023",
+    "target": "ES2023",
     "lib": ["ES2023", "DOM"],
-    "module": "esnext",
+    "module": "ESNext",
     "types": ["vite/client"],
     "skipLibCheck": true,
 
@@ -19,7 +19,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path aliases */
+    "paths": {
+      "@terra-watch/shared": ["../../packages/shared/src/index.ts"],
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "../../packages/shared" }]
 }

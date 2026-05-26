@@ -2,7 +2,7 @@ packages:
   - "apps/*"
   - "packages/*"
 allowBuilds:
-  '@nestjs/core': true
-  '@scarf/scarf': true
+  "@nestjs/core": true
+  "@scarf/scarf": true
   esbuild: true
   unrs-resolver: false

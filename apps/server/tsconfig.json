@@ -13,13 +13,20 @@
     "target": "ES2023",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
     "strictBindCallApply": true,
-    "noFallthroughCasesInSwitch": true
-  }
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@terra-watch/shared": ["../../packages/shared/src/index.ts"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*", "test/**/*"],
+  "references": [{ "path": "../../packages/shared" }]
 }
