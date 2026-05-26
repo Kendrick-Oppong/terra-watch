@@ -12,10 +12,11 @@ The platform is designed to replace manual, analyst-heavy GIS workflows with a b
 - generate reports and alerts for field teams and decision makers
 - persist spatial and operational data in PostgreSQL/PostGIS
 
-The repository contains two primary applications:
+The repository contains three primary components:
 
 - Backend: NestJS + TypeScript + Drizzle ORM + PostgreSQL/PostGIS
 - Frontend: Vite + React + TypeScript
+- Python Engine: FastAPI + Python for satellite imagery processing
 
 The larger product vision and technical design are documented in [TerraWatch_Project_Documentation.md](TerraWatch_Project_Documentation.md).
 
@@ -30,6 +31,13 @@ The larger product vision and technical design are documented in [TerraWatch_Pro
 - apps/web
   - Vite React frontend
   - starter dashboard and assets
+- python-engine
+  - FastAPI service for satellite imagery processing
+  - Sentinel-2 ingestion and spectral indices
+  - change detection and vectorization
+  - PDF report generation
+- packages/shared
+  - shared TypeScript types and constants
 - pnpm-workspace.yaml
   - workspace configuration for apps and packages
 
@@ -53,6 +61,14 @@ The larger product vision and technical design are documented in [TerraWatch_Pro
 - React 19
 - TypeScript
 - ESLint
+
+### Python Engine
+
+- Python 3.10+
+- FastAPI
+- Uvicorn
+- Rasterio, Shapely, SciPy for geospatial processing
+- Pydantic for data validation
 
 ## Current Backend Capabilities
 
@@ -91,6 +107,7 @@ The current frontend scaffold includes:
 
 - Node.js 20+
 - pnpm
+- Python 3.10+ (for Python Engine)
 - PostgreSQL/PostGIS instance
 
 ### Install dependencies
@@ -148,6 +165,13 @@ Or directly:
 
 cd apps/web
 pnpm dev
+
+### Python Engine
+
+From the python-engine directory:
+
+pip install -r requirements.txt
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 
 ## API Surface
 
