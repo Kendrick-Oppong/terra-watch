@@ -3,6 +3,11 @@ node_modules/
 dist/
 .pnpm-debug.log
 
+# Python artifacts
+python-engine/.venv/
+python-engine/__pycache__/
+**/__pycache__/
+**/*.py[cod]
+
 # Local environment variables
 .env
-.env.local

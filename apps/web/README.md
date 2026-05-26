@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# TerraWatch Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vite + React + TypeScript dashboard for the TerraWatch platform.
 
-Currently, two official plugins are available:
+This is the user-facing web application that displays mining site intelligence, interactive maps, risk zones, and report generation capabilities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Quick Start
 
-## React Compiler
+### From the monorepo root
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm --filter web dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Or directly in this folder
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd apps/web
+pnpm install
+pnpm dev
 ```
+
+The dev server runs on `http://localhost:5173` by default.
+
+## Environment
+
+Copy `.env.example` to `.env` and fill in:
+
+- `VITE_API_URL` — backend API root (e.g., `http://localhost:3001`)
+- `VITE_MAPTILER_KEY` — MapTiler API key for basemaps (optional for dev)
+
+## Available Scripts
+
+```bash
+pnpm dev            # Start Vite dev server with HMR
+pnpm build          # Compile TypeScript and bundle for production
+pnpm preview        # Preview production build locally
+pnpm lint           # Run ESLint and fix issues
+```
+
+## Folder Structure
+
+```
+src/
+├── components/      # Reusable UI components
+│   ├── map/         # Map-related components
+│   ├── panels/      # Side panels and modals
+│   ├── topbar/      # Top navigation
+│   └── ...
+├── pages/           # Page-level components
+├── hooks/           # React hooks (custom logic)
+├── services/        # API client services
+├── store/           # State management (Zustand/Context)
+├── types/           # Local TypeScript types
+├── utils/           # Helper functions
+├── config/          # Configuration (map, API, etc.)
+├── App.tsx          # Root component
+├── main.tsx         # Vite entry point
+└── index.css        # Global styles
+```
+
+## Shared Types
+
+Domain types are defined in the monorepo's `@terra-watch/shared` package under `packages/shared`.
+
+Import shared types in components and services:
+
+```typescript
+import type { MiningSite, RiskLevel, Report } from "@terra-watch/shared";
+```
+
+## Building
+
+The build output goes to `dist/`. TypeScript compilation and Vite bundling are both run:
+
+```bash
+pnpm build
+```
+
+This runs `tsc -b && vite build`.
+
+## Development
+
+- HMR (Hot Module Replacement) is enabled by default in dev mode
+- ESLint checks are integrated; run `pnpm lint` to fix issues
+- Use TypeScript for type safety across components and services
+
+## Further Reading
+
+- [TerraWatch Project Documentation](../../TerraWatch_Project_Documentation.md)
+- [Root README](../../README.md)
+- [Vite Documentation](https://vitejs.dev)
+- [React Documentation](https://react.dev)
