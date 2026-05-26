@@ -1,0 +1,24 @@
+[project]
+name = "terra-watch-python-engine"
+version = "0.0.1"
+description = "TerraWatch Python geoprocessing engine"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.116.1",
+  "uvicorn[standard]==0.23.2",
+  "httpx==0.27.0",
+  "pydantic==2.8.0",
+  "python-dotenv==1.0.0",
+  "numpy==1.28.4",
+  "rasterio==1.4.4",
+  "shapely==2.0.1",
+  "scipy==1.12.3",
+  "fiona==1.9.4",
+  "jinja2==3.1.4",
+  "weasyprint==59.0",
+  "pytest==8.4.4"
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

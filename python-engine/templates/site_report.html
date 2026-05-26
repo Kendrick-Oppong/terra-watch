@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Site Report</title>
+  </head>
+  <body>
+    <h1>TerraWatch Site Report</h1>
+    <p>Site: {{ site.name }}</p>
+    <p>Risk level: {{ site.risk_level }}</p>
+    <section>
+      <h2>Details</h2>
+      <p>Area: {{ site.area_ha }} ha</p>
+      <p>Detected on: {{ site.detected_at }}</p>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Situation Report</title>
+  </head>
+  <body>
+    <h1>TerraWatch Situation Report</h1>
+    <p>Study area: {{ study_area.name }}</p>
+    <p>Date range: {{ date_from }} to {{ date_to }}</p>
+    <section>
+      <h2>Top findings</h2>
+      <ul>
+        {% for site in sites %}
+        <li>{{ site.name }} — Risk: {{ site.risk_level }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </body>
+</html>
