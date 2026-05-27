@@ -1,12 +1,19 @@
 {
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "globals": "^17.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.5",
+    "turbo": "2.9.14",
+    "typescript": "^5.7.3",
+    "ultracite": "7.7.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "pnpm dlx ultracite fix"
+    ]
+  },
   "name": "terra-watch",
-  "version": "0.0.1",
-  "private": true,
-  "packageManager": "pnpm@11.3.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "dev:server": "pnpm --filter server start:dev",
     "dev:web": "pnpm --filter web dev",
@@ -15,14 +22,20 @@
     "build:server": "pnpm --filter server build",
     "build:web": "pnpm --filter web build",
     "lint": "turbo lint",
-    "lint:fix": "pnpm -r lint --fix",
+    "lint:fix": "turbo lint --filter=./apps/*",
     "test": "pnpm --filter server test",
     "test:watch": "pnpm --filter server test:watch",
     "type-check": "tsc -b",
-    "clean": "turbo clean && rm -rf node_modules .turbo"
+    "clean": "turbo clean && rm -rf node_modules .turbo",
+    "check": "pnpm dlx ultracite check",
+    "fix": "pnpm dlx ultracite fix",
+    "prepare": "husky"
   },
-  "devDependencies": {
-    "turbo": "2.9.14",
-    "typescript": "^5.7.3"
-  }
+  "version": "0.0.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "private": true,
+  "packageManager": "pnpm@11.3.0"
 }
