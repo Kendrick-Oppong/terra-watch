@@ -7,22 +7,22 @@ export type SiteStatus =
 export type SiteSource = "SATELLITE" | "MANUAL";
 
 export interface Detection {
+  areaHa: number;
+  deltaBsi: number;
+  deltaNdvi: number;
+  detectedAt: string;
   id: string;
   siteId: string;
-  detectedAt: string;
-  areaHa: number;
-  deltaNdvi: number;
-  deltaBsi: number;
 }
 
 export interface MiningSite {
-  id: string;
-  name: string;
+  areaHa: number;
   description?: string;
+  geometry: GeoJSON.Feature<GeoJSON.Polygon>;
+  id: string;
+  lastDetectedAt: string;
+  name: string;
+  riskLevel: RiskLevel;
   source: SiteSource;
   status: SiteStatus;
-  riskLevel: RiskLevel;
-  areaHa: number;
-  lastDetectedAt: string;
-  geometry: GeoJSON.Feature<GeoJSON.Polygon>;
 }

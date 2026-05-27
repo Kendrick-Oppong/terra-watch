@@ -1,22 +1,22 @@
 export interface ImageryScene {
-  id: string;
   capturedAt: string;
   cloudCover: number;
-  source: string;
   footprint: GeoJSON.Feature<GeoJSON.Polygon>;
+  id: string;
+  source: string;
 }
 
 export interface PipelineRun {
-  id: string;
-  studyAreaId: string;
-  startedAt: string;
   completedAt?: string;
+  id: string;
+  startedAt: string;
   status: "PENDING" | "RUNNING" | "COMPLETED" | "FAILED";
+  studyAreaId: string;
 }
 
 export interface PipelineStatus {
+  message: string;
+  progressPct: number;
   runId: string;
   stage: string;
-  progressPct: number;
-  message: string;
 }

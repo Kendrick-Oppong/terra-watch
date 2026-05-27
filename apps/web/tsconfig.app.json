@@ -25,7 +25,8 @@
     "paths": {
       "@terra-watch/shared": ["../../packages/shared/src/index.ts"],
       "@/*": ["./src/*"]
-    }
+    },
+    "strictNullChecks": true
   },
   "include": ["src"],
   "references": [{ "path": "../../packages/shared" }]
