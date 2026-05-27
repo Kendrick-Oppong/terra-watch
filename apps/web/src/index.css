@@ -5,79 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Light Mode Configuration */
-  --background: #f8fafc;
-  --foreground: #050608;
-  --card: #ffffff;
-  --card-foreground: #050608;
-  --popover: #ffffff;
-  --popover-foreground: #050608;
-  --primary: #22c55e;
-  --primary-foreground: #ffffff;
-  --secondary: #0f4a2a;
-  --secondary-foreground: #ffffff;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #22c55e;
-  --accent-foreground: #1a7a45;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #ffffff;
-  --ring: #22c55e;
-
-  /* Chart Colors */
-  --chart-1: #22c55e;
-  --chart-2: #4ade80;
-  --chart-3: #1a7a45;
-  --chart-4: #f97316;
-  --chart-5: #eab308;
-
-  /* Sidebar Configuration */
-  --sidebar: #ffffff;
-  --sidebar-foreground: #050608;
-  --sidebar-primary: #22c55e;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f1f5f9;
-  --sidebar-accent-foreground: #22c55e;
-  --sidebar-border: #e2e8f0;
-  --sidebar-ring: #22c55e;
-
-  /* Typography Settings */
-  --font-sans: "Bai Jamjuree", sans-serif;
-  --font-serif: "Syne", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-
-  /* Border Radius */
-  --radius: 0.25rem;
-
-  /* Spacing Scale */
-  --spacing: 0.25rem;
-
-  /* Light Mode Shadows */
-  --shadow-2xs: 0px 2px 10px 0px hsl(0 0% 0% / 0.05);
-  --shadow-xs: 0px 2px 10px 0px hsl(0 0% 0% / 0.05);
-  --shadow-sm:
-    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow:
-    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
-  --shadow-md:
-    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 2px 4px -1px hsl(0 0% 0% / 0.1);
-  --shadow-lg:
-    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 4px 6px -1px hsl(0 0% 0% / 0.1);
-  --shadow-xl:
-    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 8px 10px -1px hsl(0 0% 0% / 0.1);
-  --shadow-2xl: 0px 2px 10px 0px hsl(0 0% 0% / 0.25);
-
-  /* Tracking (Letter-Spacing) */
-  --tracking-normal: -0.01em;
-}
-
-.dark {
   /* Dark Mode Configuration (TerraWatch Tactical Aesthetic) */
-  --background: #050608;
+  --background: #0d1117;
   --foreground: #e2eaf0;
-  --card: #0d1117;
+  --card: #080b0e;
   --card-foreground: #e2eaf0;
   --popover: #111820;
   --popover-foreground: #e2eaf0;
@@ -85,8 +16,8 @@
   --primary-foreground: #050608;
   --secondary: #162030;
   --secondary-foreground: #e2eaf0;
-  --muted: #1c2a3a;
-  --muted-foreground: #7a9ab5;
+  --muted: #111820;
+  --muted-foreground: #4a6a85;
   --accent: #22c55e;
   --accent-foreground: #4ade80;
   --destructive: #ef4444;
@@ -119,6 +50,18 @@
   --shadow-xl:
     0px 4px 15px 0px hsl(0 0% 0% / 0.3), 0px 8px 10px -1px hsl(0 0% 0% / 0.3);
   --shadow-2xl: 0px 4px 15px 0px hsl(0 0% 0% / 0.75);
+
+  /* Typography Settings */
+  --font-sans: "Bai Jamjuree", sans-serif;
+
+  /* Border Radius */
+  --radius: 0.25rem;
+
+  /* Spacing Scale */
+  --spacing: 0.25rem;
+
+  /* Tracking (Letter-Spacing) */
+  --tracking-normal: -0.01em;
 }
 
 @theme inline {
@@ -156,8 +99,6 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
 
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
@@ -189,5 +130,21 @@
     font-family: var(--font-sans);
     letter-spacing: var(--tracking-normal);
     @apply bg-background text-foreground;
+  }
+
+  /* Scrollbar for detail body */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-secondary);
   }
 }
