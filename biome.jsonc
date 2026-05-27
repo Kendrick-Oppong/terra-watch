@@ -3,6 +3,13 @@
   "files": {
     "includes": ["!python-engine", "!*.html", "!*.md", "!data"]
   },
+  "linter": {
+    "rules": {
+      "style": {
+        "useImportType": "off"
+      }
+    }
+  },
   "extends": [
     "ultracite/biome/core",
     "ultracite/biome/react",
