@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "composite": true,
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "resolvePackageJsonExports": true,
@@ -22,6 +23,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "types": ["node", "jest"],
     "paths": {
       "@terra-watch/shared": ["../../packages/shared/src/index.ts"],
       "@/*": ["./src/*"]
