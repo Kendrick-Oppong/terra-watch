@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller } from "@nestjs/common";
 
-@Controller('study-areas')
+@Controller("study-areas")
 export class StudyAreasController {}
