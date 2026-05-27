@@ -1,4 +1,4 @@
-import { plainToInstance } from 'class-transformer';
+import { plainToInstance } from "class-transformer";
 import {
   IsEnum,
   IsNumber,
@@ -9,12 +9,14 @@ import {
   Max,
   Min,
   validateSync,
-} from 'class-validator';
+} from "class-validator";
+
+const BOOLEAN_STRING_REGEX = /^(true|false)$/;
 
 export enum Environment {
-  Development = 'development',
-  Production = 'production',
-  Test = 'test',
+  Development = "development",
+  Production = "production",
+  Test = "test",
 }
 
 class EnvironmentVariables {
@@ -23,14 +25,14 @@ class EnvironmentVariables {
 
   @IsNumber()
   @Min(1)
-  @Max(65535)
+  @Max(65_535)
   PORT!: number;
 
   @IsUrl()
   DATABASE_URL!: string;
 
   @IsOptional()
-  @Matches(/^(true|false)$/)
+  @Matches(BOOLEAN_STRING_REGEX)
   DB_SSL?: string;
 
   @IsOptional()
@@ -42,12 +44,12 @@ class EnvironmentVariables {
   PYTHON_ENGINE_URL?: string;
 
   @IsOptional()
-  @Matches(/^(true|false)$/)
+  @Matches(BOOLEAN_STRING_REGEX)
   ENABLE_SWAGGER?: string;
 }
 
 export function validateEnv(
-  config: Record<string, unknown>,
+  config: Record<string, unknown>
 ): EnvironmentVariables {
   const validatedConfig = plainToInstance(EnvironmentVariables, config, {
     enableImplicitConversion: true,
@@ -59,8 +61,8 @@ export function validateEnv(
 
   if (errors.length > 0) {
     const errorMessages = errors
-      .map((error) => Object.values(error.constraints ?? {}).join(', '))
-      .join('\n');
+      .map((error) => Object.values(error.constraints ?? {}).join(", "))
+      .join("\n");
 
     throw new Error(`Environment validation failed:\n${errorMessages}`);
   }
