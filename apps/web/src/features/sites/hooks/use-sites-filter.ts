@@ -7,14 +7,14 @@ export const useSitesFilter = (
   activeFilter: RiskLevel | null
 ) => {
   const filtered = useMemo(() => {
-    const q = search.toLowerCase();
-    return SITES.filter((s) => {
-      const matchRisk = activeFilter === null || activeFilter === s.risk;
+    const query = search.toLowerCase();
+    return SITES.filter((site) => {
+      const matchRisk = activeFilter === null || activeFilter === site.risk;
       const matchSearch =
-        !q ||
-        s.name.toLowerCase().includes(q) ||
-        s.id.toLowerCase().includes(q) ||
-        s.region.toLowerCase().includes(q);
+        !query ||
+        site.name.toLowerCase().includes(query) ||
+        site.id.toLowerCase().includes(query) ||
+        site.region.toLowerCase().includes(query);
       return matchRisk && matchSearch;
     });
   }, [search, activeFilter]);
