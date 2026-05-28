@@ -11,7 +11,7 @@ export default defineConfig({
       "@": resolve(import.meta.dirname, "./src"),
       "@terra-watch/shared": resolve(
         import.meta.dirname,
-        "../packages/shared/src"
+        "../../packages/shared/src"
       ),
     },
   },
