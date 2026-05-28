@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { TABS, type TabId } from "@/features/sites/config";
 import { cn } from "@/lib/utils";
+import { TABS, type TabId } from "../sidebar-left/config";
 
 export const SidebarLeft = () => {
   const [activeTab, setActiveTab] = useState<TabId>("SITES");
