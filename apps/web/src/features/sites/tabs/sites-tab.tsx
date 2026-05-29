@@ -8,9 +8,9 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useSitesFilter } from "../hooks/use-sites-filter";
 import { RISK_COLOR, RISK_LABEL, RISK_LEFT_BORDER, RISK_LEVELS } from "../risk";
 import type { RiskLevel } from "../types";
-import { useSitesFilter } from "./hooks/useSitesFilter";
 
 export const SitesTab = () => {
   const [search, setSearch] = useState("");
